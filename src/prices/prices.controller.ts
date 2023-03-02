@@ -1,9 +1,11 @@
 import { Controller, Get } from "@nestjs/common";
+import { PricesService } from "./prices.service";
 
-@Controller("/prices")
+@Controller("/api")
 export class PricesController {
-    @Get("/")
+    constructor(private pricesService: PricesService) {}
+    @Get("/getPrices")
     getTest() {
-        return "test";
+        return this.pricesService.getServiceTest();
     }
 }
