@@ -1,8 +1,7 @@
 import { Module } from "@nestjs/common";
-import { AppController } from "./app.controller";
-import { AppService } from "./app.service";
 import { SequelizeModule } from "@nestjs/sequelize";
-import { Cars } from "./test.models";
+
+import { PricesModule } from "./prices/prices.module";
 
 @Module({
     imports: [
@@ -16,8 +15,9 @@ import { Cars } from "./test.models";
         //     autoLoadModels: true,
         //     models: [Cars],
         // }),
+        PricesModule,
     ],
-    controllers: [AppController],
-    providers: [AppService],
+    controllers: [],
+    providers: [],
 })
 export class AppModule {}
