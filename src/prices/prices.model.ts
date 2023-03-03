@@ -18,4 +18,6 @@ export default class Prices extends Model<Prices, IPriceCreation> {
     vinyl: number;
     @Column({ type: DataType.INTEGER, allowNull: true })
     vinylPC: number;
+    @Column({ type: DataType.INTEGER, allowNull: true })
+    vinylUV: number;
 }

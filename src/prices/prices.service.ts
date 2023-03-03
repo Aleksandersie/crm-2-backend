@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+ import { Injectable } from "@nestjs/common";
 import Prices from "./prices.model";
 import { InjectModel } from "@nestjs/sequelize";
 import { CreatePriceListDto } from "./DTO/createPriceList.dto";
