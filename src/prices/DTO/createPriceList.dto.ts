@@ -1,6 +1,8 @@
 import {ApiProperty} from "@nestjs/swagger";
 
 export class CreatePriceListDto {
+    @ApiProperty({example:"retail", description: "Категория прайс листа" })
+    readonly priceCategory: string;
 
     @ApiProperty({example:"1000", description: "Стоимость печати на самоклеющейся пленке" })
     readonly vinyl: number;
@@ -10,4 +12,6 @@ export class CreatePriceListDto {
 
     @ApiProperty({example:"1000", description: "Стоимость УФ печати на самоклеющейся пленке" })
     readonly  vinylUV:number;
+
 }
+

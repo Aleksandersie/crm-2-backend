@@ -5,7 +5,7 @@ const app_module_1 = require("./app.module");
 const swagger_1 = require("@nestjs/swagger");
 async function bootstrap() {
     const appPort = 5000;
-    const app = await core_1.NestFactory.create(app_module_1.AppModule);
+    const app = await core_1.NestFactory.create(app_module_1.AppModule, { cors: true });
     const swaggerConfig = new swagger_1.DocumentBuilder()
         .setTitle("A4-YUG CRM BACKEND")
         .setDescription("Описание ендпоинтов приложения")

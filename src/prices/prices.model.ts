@@ -6,7 +6,7 @@ interface IPriceCreation {
     vinylPC: number;
 }
 
-@Table({ tableName: "prices" })
+@Table({ tableName: "prices",createdAt:false,updatedAt:false })
 export default class Prices extends Model<Prices, IPriceCreation> {
     @ApiProperty({example:"1", description: "ID" })
     @Column({
@@ -16,6 +16,10 @@ export default class Prices extends Model<Prices, IPriceCreation> {
         primaryKey: true,
     })
     id: number;
+
+    @ApiProperty({example:"retail", description: "Категория прайс листа" })
+    @Column({ type: DataType.STRING, allowNull: true })
+    priceCategory: string;
 
     @ApiProperty({example:"1000", description: "Стоимость печати на самоклеющейся пленке" })
     @Column({ type: DataType.INTEGER, allowNull: true })
