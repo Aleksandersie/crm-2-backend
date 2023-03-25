@@ -5,7 +5,7 @@ import {ApiOperation, ApiResponse, ApiTags} from "@nestjs/swagger";
 import Prices from "./prices.model";
 
 @ApiTags("Прайс лист")
-@Controller("/api")
+@Controller("/api/prices")
 export class PricesController {
     constructor(private pricesService: PricesService) {}
 
