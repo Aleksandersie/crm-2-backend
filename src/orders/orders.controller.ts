@@ -1,7 +1,7 @@
-import { Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { OrdersService } from "./orders.service";
-
+import { CreateOrderDto } from "./DTO/createOrder.dto";
 @ApiTags("Создание заказов")
 @Controller("api/orders")
 export class OrdersController {
@@ -12,7 +12,7 @@ export class OrdersController {
         return this.ordersService.getAllOrders();
     }
     @Post("/createOrder")
-    create() {
-        return "create";
+    create(@Body() createDto: CreateOrderDto) {
+        return this.ordersService.createOrder();
     }
 }

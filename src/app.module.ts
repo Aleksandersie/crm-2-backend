@@ -1,13 +1,14 @@
 import { Module } from "@nestjs/common";
 import { SequelizeModule } from "@nestjs/sequelize";
 import { PricesModule } from "./prices/prices.module";
-import { AuthService } from './auth/auth.service';
-import { AuthController } from './auth/auth.controller';
-import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
-import { OrdersModule } from './orders/orders.module';
+import { AuthService } from "./auth/auth.service";
+import { AuthController } from "./auth/auth.controller";
+import { AuthModule } from "./auth/auth.module";
+import { UsersModule } from "./users/users.module";
+import { OrdersModule } from "./orders/orders.module";
 import Prices from "./prices/prices.model";
 import Users from "./users/users.model";
+import Order from "./orders/order.model";
 
 @Module({
     imports: [
@@ -19,7 +20,7 @@ import Users from "./users/users.model";
             password: "1234",
             database: "testdb",
             autoLoadModels: true,
-            models: [Prices,Users],
+            models: [Prices, Users, Order],
         }),
         PricesModule,
         AuthModule,

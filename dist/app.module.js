@@ -15,6 +15,7 @@ const users_module_1 = require("./users/users.module");
 const orders_module_1 = require("./orders/orders.module");
 const prices_model_1 = require("./prices/prices.model");
 const users_model_1 = require("./users/users.model");
+const order_model_1 = require("./orders/order.model");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -28,7 +29,7 @@ AppModule = __decorate([
                 password: "1234",
                 database: "testdb",
                 autoLoadModels: true,
-                models: [prices_model_1.default, users_model_1.default],
+                models: [prices_model_1.default, users_model_1.default, order_model_1.default],
             }),
             prices_module_1.PricesModule,
             auth_module_1.AuthModule,

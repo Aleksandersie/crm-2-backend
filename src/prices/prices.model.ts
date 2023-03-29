@@ -1,14 +1,14 @@
 import { Column, DataType, Model, Table } from "sequelize-typescript";
-import {ApiProperty} from "@nestjs/swagger";
+import { ApiProperty } from "@nestjs/swagger";
 
 interface IPriceCreation {
     vinyl: number;
     vinylPC: number;
 }
 
-@Table({ tableName: "prices",createdAt:false,updatedAt:false })
+@Table({ tableName: "prices", createdAt: false, updatedAt: false })
 export default class Prices extends Model<Prices, IPriceCreation> {
-    @ApiProperty({example:"1", description: "ID" })
+    @ApiProperty({ example: "1", description: "ID" })
     @Column({
         type: DataType.INTEGER,
         unique: true,
@@ -17,19 +17,22 @@ export default class Prices extends Model<Prices, IPriceCreation> {
     })
     id: number;
 
-    @ApiProperty({example:"retail", description: "Категория прайс листа" })
+    @ApiProperty({ example: "retail", description: "Категория прайс листа" })
     @Column({ type: DataType.STRING, allowNull: true })
     priceCategory: string;
 
-    @ApiProperty({example:"1000", description: "Стоимость печати на самоклеющейся пленке" })
+    @ApiProperty({ example: "1000", description: "Стоимость печати на самоклеющейся пленке" })
     @Column({ type: DataType.INTEGER, allowNull: true })
     vinyl: number;
 
-    @ApiProperty({example:"1000", description: "Стоимость печати и резки на самоклеющейся пленке" })
+    @ApiProperty({
+        example: "1000",
+        description: "Стоимость печати и резки на самоклеющейся пленке",
+    })
     @Column({ type: DataType.INTEGER, allowNull: true })
     vinylPC: number;
 
-    @ApiProperty({example:"1000", description: "Стоимость УФ печати на самоклеющейся пленке" })
+    @ApiProperty({ example: "1000", description: "Стоимость УФ печати на самоклеющейся пленке" })
     @Column({ type: DataType.INTEGER, allowNull: true })
     vinylUV: number;
 }
