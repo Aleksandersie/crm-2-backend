@@ -5,6 +5,7 @@ import { AuthService } from './auth/auth.service';
 import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
+import { OrdersModule } from './orders/orders.module';
 import Prices from "./prices/prices.model";
 import Users from "./users/users.model";
 
@@ -23,6 +24,7 @@ import Users from "./users/users.model";
         PricesModule,
         AuthModule,
         UsersModule,
+        OrdersModule,
     ],
     controllers: [],
     providers: [],

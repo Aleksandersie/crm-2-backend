@@ -12,6 +12,7 @@ const sequelize_1 = require("@nestjs/sequelize");
 const prices_module_1 = require("./prices/prices.module");
 const auth_module_1 = require("./auth/auth.module");
 const users_module_1 = require("./users/users.module");
+const orders_module_1 = require("./orders/orders.module");
 const prices_model_1 = require("./prices/prices.model");
 const users_model_1 = require("./users/users.model");
 let AppModule = class AppModule {
@@ -32,6 +33,7 @@ AppModule = __decorate([
             prices_module_1.PricesModule,
             auth_module_1.AuthModule,
             users_module_1.UsersModule,
+            orders_module_1.OrdersModule,
         ],
         controllers: [],
         providers: [],
