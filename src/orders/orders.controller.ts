@@ -13,6 +13,6 @@ export class OrdersController {
     }
     @Post("/createOrder")
     create(@Body() createDto: CreateOrderDto) {
-        return this.ordersService.createOrder();
+        return this.ordersService.createOrder(createDto);
     }
 }
