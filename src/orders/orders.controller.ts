@@ -8,11 +8,11 @@ export class OrdersController {
     constructor(private ordersService: OrdersService) {}
 
     @Get("/getAllOrders")
-    getAll() {
+    getAll(): Promise<CreateOrderDto[]> {
         return this.ordersService.getAllOrders();
     }
     @Post("/createOrder")
-    create(@Body() createDto: CreateOrderDto) {
+    create(@Body() createDto: CreateOrderDto): Promise<CreateOrderDto> {
         return this.ordersService.createOrder(createDto);
     }
 }

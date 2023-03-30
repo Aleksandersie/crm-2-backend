@@ -59,4 +59,11 @@ export default class Order extends Model<Order, IOrderCreation> {
     })
     @Column({ type: DataType.STRING })
     orderTitle: string;
+
+    @ApiProperty({
+        example: "Принят в работу",
+        description: "Статус заказа",
+    })
+    @Column({ type: DataType.STRING })
+    orderStatus: string;
 }

@@ -7,9 +7,10 @@ import { CreateOrderDto } from "./DTO/createOrder.dto";
 export class OrdersService {
     constructor(@InjectModel(Order) private ordersRepository: typeof Order) {}
     async getAllOrders() {
-        return 123;
+        return this.ordersRepository.findAll();
     }
     async createOrder(dto: CreateOrderDto) {
-        console.log(dto);
+        const order = await this.ordersRepository.create(dto);
+        return order;
     }
 }
