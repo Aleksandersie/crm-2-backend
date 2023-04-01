@@ -7,9 +7,10 @@ import Users from "../users/users.model";
 @Injectable()
 export class AuthService {
     constructor(private userService: UsersService, private jwtService: JwtService) {}
+
     async login(userDto: CreateUserDto) {
-        const user = this.validateUser(userDto);
-        return user;
+        const user = await this.validateUser(userDto);
+        return await this.generateToken(user);
     }
 
     async registration(userDto: CreateUserDto) {
