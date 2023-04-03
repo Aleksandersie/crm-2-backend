@@ -9,7 +9,7 @@ export class AuthService {
     constructor(private userService: UsersService, private jwtService: JwtService) {}
 
     async login(userDto: CreateUserDto) {
-        const user = await this.validateUser(userDto); 
+        const user = await this.validateUser(userDto);
         return await this.generateToken(user);
     }
 
