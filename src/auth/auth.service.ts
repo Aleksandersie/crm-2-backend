@@ -3,14 +3,27 @@ import { CreateUserDto } from "../users/DTO/createUser.dto";
 import { UsersService } from "../users/users.service";
 import { JwtService } from "@nestjs/jwt";
 import Users from "../users/users.model";
+import jwt_decode from "jwt-decode";
 
+interface dec {
+    userName: string;
+}
 @Injectable()
 export class AuthService {
     constructor(private userService: UsersService, private jwtService: JwtService) {}
 
     async login(userDto: CreateUserDto) {
         const user = await this.validateUser(userDto);
-        return await this.generateToken(user);
+        const token = await this.generateToken(user);
+        const decode: dec = jwt_decode(String(token.token));
+
+        console.log("dec", decode.userName);
+
+        const response = {
+            userName: decode.userName,
+            token: token,
+        };
+        return response;
     }
 
     async registration(userDto: CreateUserDto) {
