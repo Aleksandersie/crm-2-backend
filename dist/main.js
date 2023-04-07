@@ -8,7 +8,7 @@ async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule, { cors: true });
     const swaggerConfig = new swagger_1.DocumentBuilder()
         .setTitle("A4-YUG CRM BACKEND")
-        .setDescription("Описание ендпоинтов приложения")
+        .setDescription("Описание эндпоинтов приложения")
         .addTag("Endpoints")
         .build();
     const swaggerDocument = swagger_1.SwaggerModule.createDocument(app, swaggerConfig);
