@@ -18,4 +18,13 @@ export class UsersService {
         const user = await this.usersRepository.findOne({ where: { userName } });
         return user;
     }
+    async findCustomerByName(userName: string) {
+        const user = await this.usersRepository.findOne({
+            where: {
+                userName: userName,
+                userRole: "customer",
+            },
+        });
+        return user;
+    }
 }

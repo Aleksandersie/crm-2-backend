@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post, Query } from "@nestjs/common";
 import { UsersService } from "./users.service";
 import { CreateUserDto } from "./DTO/createUser.dto";
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
@@ -21,5 +21,11 @@ export class UsersController {
     @Get("/getAll")
     getAll() {
         return this.usersService.getAllUsers();
+    }
+    @ApiOperation({ summary: "Поиск заказчика по имени" })
+    @ApiResponse({ status: 200, type: Users })
+    @Get("/searchCustomerByName")
+    getAllCustomers(@Query("userName") userName: string) {
+        return this.usersService.findCustomerByName(userName);
     }
 }
