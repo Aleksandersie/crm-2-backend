@@ -19,7 +19,7 @@ export class UsersService {
         return user;
     }
     async findCustomerByName(userName: string) {
-        const user = await this.usersRepository.findOne({
+        const user = await this.usersRepository.findAll({
             where: {
                 userName: userName,
                 userRole: "customer",
