@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/sequelize";
 import Users from "./users.model";
 import { CreateUserDto } from "./DTO/createUser.dto";
+import { Op } from "sequelize";
 
 @Injectable()
 export class UsersService {
@@ -21,7 +22,7 @@ export class UsersService {
     async findCustomerByName(userName: string) {
         const user = await this.usersRepository.findAll({
             where: {
-                userName: userName,
+                userName: { [Op.iLike]: "%" + userName + "%" },
                 userRole: "customer",
             },
         });
