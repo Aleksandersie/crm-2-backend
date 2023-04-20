@@ -20,6 +20,9 @@ export class UsersService {
         return user;
     }
     async findCustomerByName(userName: string) {
+        if (userName === "") {
+            return [];
+        }
         const user = await this.usersRepository.findAll({
             where: {
                 userName: { [Op.iLike]: "%" + userName + "%" },
