@@ -19,13 +19,13 @@ export class UsersService {
         const user = await this.usersRepository.findOne({ where: { userName } });
         return user;
     }
-    async findCustomerByName(userName: string) {
-        if (userName === "") {
+    async findCustomerByName(customerName: string) {
+        if (customerName === "") {
             return [];
         }
         const user = await this.usersRepository.findAll({
             where: {
-                userName: { [Op.iLike]: "%" + userName + "%" },
+                userName: { [Op.iLike]: "%" + customerName + "%" },
                 userRole: "customer",
             },
         });

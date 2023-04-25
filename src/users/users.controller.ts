@@ -25,7 +25,7 @@ export class UsersController {
     @ApiOperation({ summary: "Поиск заказчика по имени" })
     @ApiResponse({ status: 200, type: Users })
     @Get("/searchCustomerByName")
-    getAllCustomers(@Query("userName") userName: string) {
-        return this.usersService.findCustomerByName(userName);
+    getAllCustomers(@Query("customerName") customerName: string) {
+        return this.usersService.findCustomerByName(customerName);
     }
 }
